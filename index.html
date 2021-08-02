@@ -20,9 +20,14 @@
             <a :href="link" target="_blank">
                 More products like this!
             </a>
-            <p v-if="inStock">In Stock</p>
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold Out</p>
             <p v-else> Out of Stock</p>
-            <span v-if="onSale">On Sale!</span>
+            <p v-show="onSale">On Sale</p>
+            
+            <ul>
+                <li v-for="detail in details">{{ detail }}</li>
+            </ul>
         </div>
         
     </div>
